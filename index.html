@@ -9,14 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #050505;
-      --card: rgba(255,255,255,0.04);
+      --bg: #ffffff;
+      --bg-soft: #f7f7f7;
+      --card: #ffffff;
       --gold: #c8a96b;
-      --gold-strong: #e2bf7a;
-      --text: #f5f5f5;
-      --muted: #d0d0d0;
-      --line: rgba(255,255,255,0.08);
-      --shadow: 0 14px 40px rgba(0,0,0,0.35);
+      --gold-strong: #b88a3b;
+      --text: #111111;
+      --muted: #555555;
+      --line: rgba(0,0,0,0.08);
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
     * {
@@ -31,7 +32,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #000;
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
@@ -50,9 +51,9 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(10px);
-      background: rgba(8,8,8,0.88);
+      background: rgba(255,255,255,0.96);
       border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
     }
 
     .nav {
@@ -65,7 +66,7 @@
 
     .logo {
       font-family: 'Cinzel', serif;
-      font-size: 1.2rem;
+      font-size: 1.8rem;
       font-weight: 700;
       color: var(--gold-strong);
       letter-spacing: 1px;
@@ -81,7 +82,7 @@
     }
 
     .menu a {
-      color: var(--muted);
+      color: #333;
       font-weight: 600;
       transition: 0.3s;
     }
@@ -99,62 +100,62 @@
     }
 
     .btn {
-      background: linear-gradient(135deg, var(--gold), var(--gold-strong));
+      background: linear-gradient(135deg, var(--gold), #e5c27a);
       color: #111;
       box-shadow: var(--shadow);
     }
 
     .btn:hover {
       transform: translateY(-2px);
-      filter: brightness(1.05);
+      filter: brightness(1.03);
     }
 
     .btn-outline {
-      border: 1px solid var(--gold);
+      border: 1px solid var(--gold-strong);
       color: var(--gold-strong);
       background: transparent;
     }
 
     .btn-outline:hover {
-      background: rgba(200,169,107,0.08);
+      background: rgba(200,169,107,0.10);
     }
 
     .hero {
-      min-height: 92vh;
+      min-height: 88vh;
       display: flex;
       align-items: center;
       background:
-        linear-gradient(rgba(0,0,0,0.38), rgba(0,0,0,0.62)),
-        url('https://images.unsplash.com/photo-1512690459411-b0fd1c86b8c8?auto=format&fit=crop&w=1400&q=80') center/cover;
+        linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0.72)),
+        url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1400&q=80') center/cover;
     }
 
     .hero-content {
-      max-width: 720px;
+      max-width: 760px;
       padding: 80px 0;
     }
 
     .tag {
       display: inline-block;
-      border: 1px solid rgba(226,191,122,0.35);
+      border: 1px solid rgba(184,138,59,0.35);
       color: var(--gold-strong);
       padding: 8px 14px;
       border-radius: 999px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       margin-bottom: 20px;
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.75);
     }
 
     .hero h1 {
       font-family: 'Cinzel', serif;
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: 1.1;
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      line-height: 1.08;
       margin-bottom: 18px;
-      max-width: 800px;
+      color: #111;
     }
 
     .hero p {
       color: var(--muted);
-      font-size: 1.08rem;
+      font-size: 1.1rem;
       max-width: 620px;
       margin-bottom: 30px;
     }
@@ -163,27 +164,28 @@
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
+      margin-bottom: 40px;
     }
 
     .highlights {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      margin-top: 42px;
+      margin-top: 12px;
     }
 
     .highlight-box {
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.88);
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 20px;
-      backdrop-filter: blur(6px);
+      box-shadow: var(--shadow);
     }
 
     .highlight-box strong {
       display: block;
       color: var(--gold-strong);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       margin-bottom: 6px;
     }
 
@@ -191,11 +193,15 @@
       padding: 88px 0;
     }
 
+    .section-light {
+      background: var(--bg-soft);
+    }
+
     .section-title {
       text-align: center;
       margin-bottom: 16px;
       font-family: 'Cinzel', serif;
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       color: var(--gold-strong);
     }
 
@@ -223,7 +229,6 @@
 
     .card:hover {
       transform: translateY(-6px);
-      border-color: rgba(226,191,122,0.35);
     }
 
     .card h3 {
@@ -239,16 +244,12 @@
 
     .price {
       font-weight: 800;
-      color: #fff;
+      color: #111;
       font-size: 1.15rem;
     }
 
-    .about {
-      display: block;
-    }
-
     .about-box {
-      background: var(--card);
+      background: #fff;
       border: 1px solid var(--line);
       border-radius: 24px;
       padding: 34px;
@@ -271,7 +272,7 @@
 
     .cta {
       text-align: center;
-      background: linear-gradient(180deg, rgba(200,169,107,0.08), rgba(255,255,255,0.01));
+      background: linear-gradient(180deg, rgba(200,169,107,0.12), rgba(255,255,255,1));
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
@@ -279,7 +280,7 @@
     .cta h2 {
       font-family: 'Cinzel', serif;
       color: var(--gold-strong);
-      font-size: 2.3rem;
+      font-size: 2.4rem;
       margin-bottom: 14px;
     }
 
@@ -296,7 +297,7 @@
     }
 
     .contact-card {
-      background: var(--card);
+      background: #fff;
       border: 1px solid var(--line);
       border-radius: 20px;
       padding: 26px;
@@ -326,16 +327,16 @@
       align-items: center;
       justify-content: center;
       font-size: 1.6rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
       z-index: 200;
     }
 
     footer {
       text-align: center;
       padding: 26px 14px;
-      color: #999;
+      color: #666;
       border-top: 1px solid var(--line);
-      background: #090909;
+      background: #fff;
     }
 
     @media (max-width: 900px) {
@@ -344,7 +345,7 @@
       }
 
       .logo {
-        font-size: 1.8rem;
+        font-size: 2rem;
         text-align: center;
         white-space: normal;
       }
@@ -370,11 +371,11 @@
       }
 
       .hero h1 {
-        font-size: clamp(1.8rem, 8vw, 2.8rem);
+        font-size: clamp(2rem, 9vw, 3rem);
       }
 
       .logo {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
       }
     }
   </style>
@@ -400,6 +401,7 @@
         Uma barbearia com identidade forte, ambiente acolhedor e acabamento de qualidade.
         Aqui, cada detalhe é pensado para você sair alinhado, confiante e pronto para qualquer ocasião.
       </p>
+
       <div class="hero-buttons">
         <a class="btn" href="https://wa.me/5562985481803?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank">Agendar pelo WhatsApp</a>
         <a class="btn-outline" href="#servicos">Ver serviços</a>
@@ -422,7 +424,7 @@
     </div>
   </section>
 
-  <section id="servicos">
+  <section id="servicos" class="section-light">
     <div class="container">
       <h2 class="section-title">Nossos serviços</h2>
       <p class="section-text">
@@ -458,7 +460,7 @@
   </section>
 
   <section id="sobre">
-    <div class="container about">
+    <div class="container">
       <div class="about-box">
         <h2>Mais que uma barbearia</h2>
         <p>
@@ -482,7 +484,7 @@
     </div>
   </section>
 
-  <section id="contato">
+  <section id="contato" class="section-light">
     <div class="container">
       <h2 class="section-title">Contato</h2>
       <p class="section-text">
