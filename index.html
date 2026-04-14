@@ -10,8 +10,9 @@
 <style>
 
 :root {
-  --bg: #f0f0f0;
-  --bg-soft: #eaeaea;
+  --bg: rgba(240,240,240,0.95);
+  --bg-soft: rgba(255,255,255,0.6);
+  --gold: #c8a96b;
   --gold-strong: #b8893d;
   --text: #111;
   --muted: #555;
@@ -28,10 +29,11 @@ body {
 header {
   text-align: center;
   padding: 20px;
-  background: white;
+  background: var(--bg-soft);
+  backdrop-filter: blur(5px);
 }
 
-/* LOGO NOVO */
+/* LOGO */
 .logo {
   text-align: center;
   color: var(--gold-strong);
@@ -41,42 +43,49 @@ header {
 
 .logo .linha1 {
   display: block;
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: 3px;
 }
 
 .logo .linha2 {
   display: block;
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 4px;
 }
 
 .logo .linha3 {
   display: block;
-  font-size: 36px;
+  font-size: 42px; /* aumentado */
   font-weight: bold;
   letter-spacing: 2px;
 }
 
+/* MENU */
+nav {
+  margin-top: 10px;
+}
+
 nav a {
-  margin: 0 10px;
+  margin: 0 12px;
   text-decoration: none;
   color: #333;
-  font-size: 14px;
+  font-weight: 500;
 }
 
 /* HERO */
 .hero {
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
   background:
-    linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.7)),
+    linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.4)),
     url('https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=1400&q=80') center/cover;
 }
 
 .hero h1 {
   font-family: 'Cinzel', serif;
   font-size: 2.2rem;
+  max-width: 700px;
+  margin: auto;
 }
 
 /* BOTÃO */
@@ -88,18 +97,25 @@ nav a {
   color: white;
   border-radius: 25px;
   text-decoration: none;
+  font-weight: 600;
 }
 
-/* SERVIÇOS */
+/* SEÇÃO */
 .section {
   padding: 40px 20px;
 }
 
+/* CARDS */
 .card {
   background: white;
   padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+  color: var(--gold-strong);
 }
 
 .card ul {
@@ -108,7 +124,7 @@ nav a {
 }
 
 .card li {
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .price {
@@ -121,11 +137,12 @@ nav a {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: green;
+  background: #25D366;
   color: white;
   padding: 15px;
   border-radius: 50%;
   text-decoration: none;
+  font-size: 20px;
 }
 
 </style>
@@ -187,11 +204,6 @@ nav a {
 
   <div class="card">
     <h3>Corte</h3>
-    <div class="price">R$ 25,00</div>
-  </div>
-
-  <div class="card">
-    <h3>Barba</h3>
     <div class="price">R$ 25,00</div>
   </div>
 
