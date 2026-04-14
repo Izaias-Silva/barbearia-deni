@@ -1,171 +1,547 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Barbearia do Deni</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barbearia do Deni</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-<style>
-:root {
-  --bg: #000;
-  --gold: #c8a96b;
-  --gold-strong: #b8893d;
-  --text: #fff;
-}
+  <style>
+    :root {
+      --bg: #000000;
+      --bg-soft: #0d0d0d;
+      --gold: #c8a96b;
+      --gold-strong: #b8893d;
+      --text: #ffffff;
+      --muted: #d5d5d5;
+      --card-bg: #f4f4f4;
+      --card-text: #111111;
+      --line: rgba(255,255,255,0.08);
+      --shadow: 0 12px 30px rgba(0,0,0,0.25);
+      --radius: 26px;
+    }
 
-* {
-  box-sizing: border-box;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-header {
-  text-align: center;
-  padding: 25px 20px;
-  background: #000;
-}
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
 
-.logo-topo {
-  width: 360px;
-  max-width: 90%;
-  margin-bottom: 15px;
-}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-nav a {
-  margin: 0 14px;
-  text-decoration: none;
-  color: #f1f1f1;
-  font-weight: 600;
-}
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
 
-.hero {
-  padding: 110px 20px;
-  text-align: center;
-  background:
-    linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.4)),
-    url('https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-}
+    header {
+      background: #000;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
 
-.hero h1 {
-  font-family: 'Cinzel', serif;
-  font-size: 2.6rem;
-  animation: subir 1.2s ease;
-}
+    .header-wrap {
+      padding: 24px 0 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
 
-@keyframes subir {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    .logo-topo {
+      width: min(460px, 96%);
+      object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.45));
+    }
 
-.btn {
-  margin-top: 25px;
-  padding: 15px 30px;
-  background: var(--gold-strong);
-  color: white;
-  border-radius: 30px;
-  text-decoration: none;
-  display: inline-block;
-  font-weight: bold;
-}
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 34px;
+      flex-wrap: wrap;
+    }
 
-.section {
-  padding: 50px 20px;
-}
+    nav a {
+      text-decoration: none;
+      color: #f7f7f7;
+      font-size: 1.08rem;
+      font-weight: 700;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
 
-.card {
-  background: #fff;
-  color: #111;
-  padding: 25px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-}
+    nav a:hover {
+      opacity: 0.8;
+      transform: translateY(-1px);
+    }
 
-.card h3 {
-  color: var(--gold-strong);
-}
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 110px 0 100px;
+      background:
+        linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.48)),
+        url('https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+    }
 
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  text-decoration: none;
-  color: white;
-}
-</style>
+    .hero-content {
+      width: min(980px, 100%);
+      animation: aparecer 1s ease;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 12px 20px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      background: rgba(0,0,0,0.22);
+      color: var(--muted);
+      font-size: 0.98rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1.05;
+      text-shadow: 0 2px 14px rgba(0,0,0,0.65);
+      max-width: 980px;
+      margin: 0 auto 20px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 34px;
+      color: #f0f0f0;
+      font-size: 1.14rem;
+      line-height: 1.8;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+
+    .botoes {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn,
+    .btn-secundario {
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 16px 32px;
+      font-weight: 800;
+      font-size: 1rem;
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover,
+    .btn-secundario:hover {
+      transform: translateY(-2px);
+      opacity: 0.96;
+    }
+
+    .btn {
+      background: var(--gold-strong);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secundario {
+      color: white;
+      border: 2px solid var(--gold-strong);
+      background: rgba(0,0,0,0.18);
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      text-align: center;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      color: var(--card-text);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      min-height: 100%;
+    }
+
+    .card h3 {
+      color: var(--gold-strong);
+      font-size: 1.35rem;
+      margin-bottom: 16px;
+    }
+
+    .card ul {
+      padding-left: 24px;
+      line-height: 1.9;
+      font-size: 1.05rem;
+    }
+
+    .card li {
+      margin-bottom: 2px;
+    }
+
+    .price {
+      margin-top: 16px;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .sobre-box {
+      background: #101010;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 34px;
+      line-height: 1.9;
+      color: #ebebeb;
+      box-shadow: var(--shadow);
+    }
+
+    .sobre-box strong {
+      color: var(--gold);
+    }
+
+    .contato-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .contato-item {
+      background: #101010;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .contato-item h4 {
+      color: var(--gold);
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .contato-item p {
+      color: #d8d8d8;
+      line-height: 1.7;
+    }
+
+    .cta-final {
+      background: linear-gradient(180deg, #050505 0%, #000000 100%);
+      text-align: center;
+      padding: 90px 0 100px;
+    }
+
+    .cta-final h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .cta-final p {
+      max-width: 740px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 26px rgba(0,0,0,0.35);
+      z-index: 60;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+
+    .whatsapp:hover {
+      transform: scale(1.06);
+    }
+
+    .whatsapp svg {
+      width: 34px;
+      height: 34px;
+      fill: white;
+    }
+
+    footer {
+      background: #000;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      padding: 22px 16px;
+      color: #c7c7c7;
+      font-size: 0.95rem;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(36px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .grid-3,
+      .contato-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(100% - 24px, 100%);
+      }
+
+      .header-wrap {
+        padding: 20px 0 16px;
+        gap: 14px;
+      }
+
+      .logo-topo {
+        width: min(320px, 95%);
+      }
+
+      nav {
+        gap: 22px;
+      }
+
+      nav a {
+        font-size: 0.98rem;
+      }
+
+      .hero {
+        padding: 88px 0 76px;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+
+      .card,
+      .sobre-box,
+      .contato-item {
+        padding: 24px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
+  <header>
+    <div class="container header-wrap">
+      <img src="file_0000000003d4720e81b05dc3fccd62ac.png" alt="Barbearia do Deni" class="logo-topo" />
 
-  <!-- ✅ NOME CORRETO DA IMAGEM -->
-  <img src="file_000000003d4720e81b05dc3fccd62ac.png" class="logo-topo">
+      <nav>
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
 
-  <nav>
-    <a href="#">Início</a>
-    <a href="#">Serviços</a>
-    <a href="#">Contato</a>
-  </nav>
+  <section class="hero" id="inicio">
+    <div class="container hero-content">
+      <div class="tag">Estilo, presença e respeito em cada corte</div>
+      <h1>Mais que um corte. Uma experiência.</h1>
+      <p>
+        Uma barbearia com identidade forte, atendimento de respeito e acabamento de qualidade.
+        Aqui, cada detalhe é pensado para você sair alinhado, confiante e pronto para qualquer ocasião.
+      </p>
 
-</header>
+      <div class="botoes">
+        <a class="btn" href="https://wa.me/5562985481803?text=Olá! Gostaria de agendar um horário.">
+          Agendar no WhatsApp
+        </a>
 
-<section class="hero">
-  <h1>Mais que um corte. Uma experiência.</h1>
+        <a class="btn-secundario" href="tel:+5562985481803">
+          Ligar para a barbearia
+        </a>
+      </div>
+    </div>
+  </section>
 
-  <!-- BOTÃO WHATSAPP -->
-  <a class="btn" href="https://wa.me/5562985481803">
-    Agendar no WhatsApp
+  <section id="servicos">
+    <div class="container">
+      <h2 class="section-title">Serviços</h2>
+      <p class="section-subtitle">
+        Atendimento com técnica, capricho e atenção aos detalhes para valorizar seu estilo do jeito certo.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Cortes modernos</h3>
+          <ul>
+            <li>Degradê</li>
+            <li>Navalhado</li>
+            <li>Social</li>
+            <li>Personalizado</li>
+          </ul>
+          <div class="price">A partir de R$ 25,00</div>
+        </div>
+
+        <div class="card">
+          <h3>Barba na régua</h3>
+          <ul>
+            <li>Alinhamento</li>
+            <li>Desenho de barba</li>
+            <li>Navalha</li>
+          </ul>
+          <div class="price">R$ 25,00</div>
+        </div>
+
+        <div class="card">
+          <h3>Combo completo</h3>
+          <ul>
+            <li>Corte + barba</li>
+            <li>Acabamento completo</li>
+            <li>Visual alinhado</li>
+          </ul>
+          <div class="price">R$ 50,00</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="container">
+      <h2 class="section-title">Sobre a barbearia</h2>
+      <p class="section-subtitle">
+        Um espaço pensado para quem gosta de andar alinhado e ser bem atendido do começo ao fim.
+      </p>
+
+      <div class="sobre-box">
+        <p>
+          Na <strong>Barbearia do Deni</strong>, cada cliente recebe atenção, cuidado e compromisso com a qualidade.
+          O objetivo é entregar mais do que um corte bonito. A ideia é proporcionar uma experiência completa, com estilo, presença e confiança.
+        </p>
+        <p>
+          Seja para manter o visual em dia ou mudar totalmente o corte, o atendimento é feito com dedicação em cada detalhe.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="container">
+      <h2 class="section-title">Contato</h2>
+      <p class="section-subtitle">
+        Escolha a forma mais prática para falar com a barbearia e agendar seu horário.
+      </p>
+
+      <div class="contato-grid">
+        <div class="contato-item">
+          <h4>WhatsApp</h4>
+          <p>(62) 98548-1803</p>
+        </div>
+
+        <div class="contato-item">
+          <h4>Ligação</h4>
+          <p>Atendimento direto pelo telefone da barbearia.</p>
+        </div>
+
+        <div class="contato-item">
+          <h4>Agendamento</h4>
+          <p>Entre em contato e marque seu horário com rapidez e praticidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <div class="container">
+      <h2>Seu próximo corte começa aqui</h2>
+      <p>
+        Fale agora com a Barbearia do Deni e garanta um atendimento feito com estilo, qualidade e atenção aos detalhes.
+      </p>
+
+      <div class="botoes">
+        <a class="btn" href="https://wa.me/5562985481803?text=Olá! Gostaria de agendar um horário.">
+          Agendar no WhatsApp
+        </a>
+
+        <a class="btn-secundario" href="tel:+5562985481803">
+          Ligar agora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <a class="whatsapp" href="https://wa.me/5562985481803?text=Olá! Gostaria de agendar um horário." aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M19.11 17.19c-.29-.15-1.69-.83-1.95-.92-.26-.1-.45-.15-.64.15-.19.29-.73.92-.89 1.11-.16.2-.33.22-.61.07-.29-.15-1.2-.44-2.28-1.41-.84-.75-1.41-1.68-1.58-1.96-.16-.29-.02-.44.12-.58.13-.13.29-.33.44-.49.15-.16.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.49.07-.74.37-.26.29-.98.96-.98 2.34s1 2.71 1.14 2.9c.15.2 1.96 2.99 4.75 4.19.66.29 1.18.46 1.58.59.66.21 1.26.18 1.73.11.53-.08 1.69-.69 1.93-1.36.24-.66.24-1.23.17-1.36-.07-.13-.26-.2-.55-.34zM16.03 3.2c-7 0-12.67 5.66-12.67 12.64 0 2.22.58 4.39 1.68 6.3L3.2 28.8l6.82-1.79a12.72 12.72 0 0 0 6.01 1.52h.01c6.99 0 12.67-5.66 12.67-12.64 0-3.39-1.32-6.58-3.72-8.97A12.6 12.6 0 0 0 16.03 3.2zm0 23.18h-.01a10.6 10.6 0 0 1-5.39-1.47l-.39-.23-4.05 1.06 1.08-3.95-.25-.4a10.46 10.46 0 0 1-1.61-5.55c0-5.79 4.74-10.51 10.57-10.51 2.82 0 5.47 1.09 7.45 3.07a10.42 10.42 0 0 1 3.1 7.44c0 5.79-4.75 10.51-10.5 10.51z"/>
+    </svg>
   </a>
-</section>
 
-<section class="section">
-
-  <div class="card">
-    <h3>Cortes modernos</h3>
-    <ul>
-      <li>Degradê</li>
-      <li>Navalhado</li>
-      <li>Social</li>
-      <li>Personalizado</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h3>Barba na régua</h3>
-    <ul>
-      <li>Alinhamento</li>
-      <li>Desenho de barba</li>
-      <li>Navalha</li>
-    </ul>
-  </div>
-
-</section>
-
-<!-- BOTÃO FLUTUANTE WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/5562985481803">
-  💬
-</a>
+  <footer>
+    © 2026 Barbearia do Deni. Todos os direitos reservados.
+  </footer>
 
 </body>
 </html>
