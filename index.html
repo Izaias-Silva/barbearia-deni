@@ -69,11 +69,18 @@
       color: #ffffff;
       text-shadow: 0 2px 10px rgba(0,0,0,0.6);
       max-width: 700px;
-      margin: 0 auto;
+      margin: 0 auto 24px;
+    }
+
+    .botoes {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 20px;
     }
 
     .btn {
-      margin-top: 24px;
       padding: 14px 28px;
       background: var(--gold-strong);
       color: white;
@@ -82,6 +89,17 @@
       display: inline-block;
       font-weight: bold;
       box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+    }
+
+    .btn-secundario {
+      padding: 14px 28px;
+      background: transparent;
+      color: white;
+      border: 2px solid var(--gold-strong);
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: bold;
     }
 
     .section {
@@ -134,7 +152,7 @@
 <body>
 
   <header>
-    <img src="logo.png" alt="Barbearia do Deni" class="logo-topo">
+    <img src="file_0000000003d4720e81b05dc3fccd62ac.png" alt="Barbearia do Deni" class="logo-topo">
 
     <nav>
       <a href="#">Início</a>
@@ -146,9 +164,15 @@
   <section class="hero">
     <h1>Mais que um corte. Uma experiência.</h1>
 
-    <a class="btn" href="https://wa.me/5562985481803?text=Olá! Gostaria de agendar um horário.">
-      Agendar no WhatsApp
-    </a>
+    <div class="botoes">
+      <a class="btn" href="tel:+5562985481803">
+        Agendar agora
+      </a>
+
+      <a class="btn-secundario" href="tel:+5562985481803">
+        Ligar para a barbearia
+      </a>
+    </div>
   </section>
 
   <section class="section">
@@ -183,8 +207,8 @@
 
   </section>
 
-  <a class="whatsapp" href="https://wa.me/5562985481803?text=Olá! Gostaria de agendar um horário.">
-    💬
+  <a class="whatsapp" href="tel:+5562985481803">
+    📞
   </a>
 
 </body>
