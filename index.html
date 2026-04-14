@@ -9,11 +9,17 @@
 
   <style>
     :root {
-      --bg: linear-gradient(135deg, #8bb8ff 0%, #f29c9c 100%);
-      --bg-soft: rgba(255,255,255,0.6);
+      --bg: #000000;
+      --bg-soft: rgba(255,255,255,0.08);
       --gold: #c8a96b;
       --gold-strong: #b8893d;
-      --text: #111;
+      --text: #ffffff;
+      --card-bg: rgba(255,255,255,0.92);
+      --card-text: #111111;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -25,63 +31,49 @@
 
     header {
       text-align: center;
-      padding: 20px;
-      background: linear-gradient(
-        135deg,
-        rgba(139,184,255,0.8),
-        rgba(242,156,156,0.8)
-      );
-      backdrop-filter: blur(8px);
+      padding: 18px 20px 22px;
+      background: #000000;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .logo {
-      font-family: 'Cinzel', serif;
-      color: var(--gold-strong);
-      line-height: 1.1;
-    }
-
-    .logo .linha1 {
-      font-size: 22px;
-      letter-spacing: 3px;
-    }
-
-    .logo .linha2 {
-      font-size: 18px;
-    }
-
-    .logo .linha3 {
-      font-size: 44px;
-      font-weight: bold;
+    .logo-topo {
+      width: 260px;
+      max-width: 80%;
+      display: block;
+      margin: 6px auto 14px;
     }
 
     nav {
-      margin-top: 10px;
+      margin-top: 6px;
     }
 
     nav a {
       margin: 0 12px;
       text-decoration: none;
-      color: #222;
+      color: #f1f1f1;
       font-weight: 600;
+      font-size: 15px;
     }
 
     .hero {
       padding: 80px 20px;
       text-align: center;
       background:
-        linear-gradient(rgba(255,255,255,0.15), rgba(255,255,255,0.2)),
-        url('https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=1400&q=80') center/cover;
+        linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.38)),
+        url('https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
     }
 
     .hero h1 {
       font-family: 'Cinzel', serif;
       font-size: 2.3rem;
-      color: white;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     .btn {
-      margin-top: 20px;
+      margin-top: 24px;
       padding: 14px 28px;
       background: var(--gold-strong);
       color: white;
@@ -89,25 +81,35 @@
       text-decoration: none;
       display: inline-block;
       font-weight: bold;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
     }
 
     .section {
       padding: 40px 20px;
+      background: #000000;
     }
 
     .card {
-      background: rgba(255,255,255,0.75);
+      background: var(--card-bg);
+      color: var(--card-text);
       padding: 20px;
-      border-radius: 15px;
+      border-radius: 18px;
       margin-bottom: 15px;
     }
 
     .card h3 {
       color: var(--gold-strong);
+      margin-top: 0;
+      font-size: 1.1rem;
     }
 
     .card ul {
-      padding-left: 20px;
+      padding-left: 22px;
+      margin-bottom: 0;
+    }
+
+    .card li {
+      margin-bottom: 8px;
     }
 
     .whatsapp {
@@ -116,73 +118,74 @@
       right: 20px;
       background: #25D366;
       color: white;
-      padding: 15px;
+      width: 62px;
+      height: 62px;
       border-radius: 50%;
       text-decoration: none;
-      font-size: 22px;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">
-    <div class="linha1">💈 Barbearia 💈</div>
-    <div class="linha2">Do</div>
-    <div class="linha3">Deni</div>
-  </div>
+  <header>
+    <img src="logo.png" alt="Barbearia do Deni" class="logo-topo">
 
-  <nav>
-    <a href="#">Início</a>
-    <a href="#">Serviços</a>
-    <a href="#">Contato</a>
-  </nav>
-</header>
+    <nav>
+      <a href="#">Início</a>
+      <a href="#">Serviços</a>
+      <a href="#">Contato</a>
+    </nav>
+  </header>
 
-<section class="hero">
-  <h1>Mais que um corte. Uma experiência.</h1>
+  <section class="hero">
+    <h1>Mais que um corte. Uma experiência.</h1>
 
-  <a class="btn" href="https://wa.me/5562985481803?text=Olá! Gostaria de agendar um horário.">
-    Agendar no WhatsApp
+    <a class="btn" href="https://wa.me/5562985481803?text=Olá! Gostaria de agendar um horário.">
+      Agendar no WhatsApp
+    </a>
+  </section>
+
+  <section class="section">
+
+    <div class="card">
+      <h3>Cortes modernos</h3>
+      <ul>
+        <li>Degradê</li>
+        <li>Navalhado</li>
+        <li>Social</li>
+        <li>Personalizado</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Barba na régua</h3>
+      <ul>
+        <li>Alinhamento</li>
+        <li>Desenho de barba</li>
+        <li>Navalha</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Atendimento de respeito</h3>
+      <ul>
+        <li>Ambiente confortável</li>
+        <li>Atendimento personalizado</li>
+        <li>Qualidade total</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <a class="whatsapp" href="https://wa.me/5562985481803?text=Olá! Gostaria de agendar um horário.">
+    💬
   </a>
-</section>
-
-<section class="section">
-
-  <div class="card">
-    <h3>Cortes modernos</h3>
-    <ul>
-      <li>Degradê</li>
-      <li>Navalhado</li>
-      <li>Social</li>
-      <li>Personalizado</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h3>Barba na régua</h3>
-    <ul>
-      <li>Alinhamento</li>
-      <li>Desenho de barba</li>
-      <li>Navalha</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h3>Atendimento de respeito</h3>
-    <ul>
-      <li>Ambiente confortável</li>
-      <li>Atendimento personalizado</li>
-      <li>Qualidade total</li>
-    </ul>
-  </div>
-
-</section>
-
-<a class="whatsapp" href="https://wa.me/5562985481803?text=Olá! Gostaria de agendar um horário.">
-💬
-</a>
 
 </body>
 </html>
