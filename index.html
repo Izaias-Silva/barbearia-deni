@@ -5,16 +5,16 @@
   <title>Barbearia do Deni</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0b0b0b;
-      --bg-soft: #141414;
+      --bg: #050505;
+      --bg-soft: #101010;
       --card: rgba(255,255,255,0.04);
       --gold: #c8a96b;
       --gold-strong: #e2bf7a;
       --text: #f5f5f5;
-      --muted: #c9c9c9;
+      --muted: #d0d0d0;
       --line: rgba(255,255,255,0.08);
       --shadow: 0 14px 40px rgba(0,0,0,0.35);
     }* {
@@ -29,7 +29,7 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background: radial-gradient(circle at top, #1a1a1a 0%, var(--bg) 45%);
+  background: #000;
   color: var(--text);
   line-height: 1.6;
 }
@@ -47,9 +47,9 @@ a {
 header {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 100;
   backdrop-filter: blur(10px);
-  background: rgba(11,11,11,0.78);
+  background: rgba(8,8,8,0.88);
   border-bottom: 1px solid var(--line);
 }
 
@@ -63,7 +63,7 @@ header {
 
 .logo {
   font-family: 'Cinzel', serif;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--gold-strong);
   letter-spacing: 1px;
@@ -78,7 +78,7 @@ header {
 
 .menu a {
   color: var(--muted);
-  font-weight: 500;
+  font-weight: 600;
   transition: 0.3s;
 }
 
@@ -90,7 +90,7 @@ header {
   display: inline-block;
   padding: 14px 24px;
   border-radius: 999px;
-  font-weight: 700;
+  font-weight: 800;
   transition: 0.3s ease;
 }
 
@@ -120,8 +120,8 @@ header {
   display: flex;
   align-items: center;
   background:
-    linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.78)),
-    url('https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=1400&q=80') center/cover;
+    linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.82)),
+    url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1400&q=80') center/cover;
 }
 
 .hero-content {
@@ -142,7 +142,7 @@ header {
 
 .hero h1 {
   font-family: 'Cinzel', serif;
-  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1.1;
   margin-bottom: 18px;
 }
@@ -233,8 +233,9 @@ section {
 }
 
 .price {
-  font-weight: 700;
+  font-weight: 800;
   color: #fff;
+  font-size: 1.15rem;
 }
 
 .about {
@@ -268,7 +269,7 @@ section {
   min-height: 420px;
   border-radius: 24px;
   background:
-    linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+    linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
     url('https://images.unsplash.com/photo-1503951458645-643d53bfd90f?auto=format&fit=crop&w=1200&q=80') center/cover;
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
@@ -318,6 +319,23 @@ section {
   color: var(--muted);
 }
 
+.whatsapp-float {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  z-index: 200;
+}
+
 footer {
   text-align: center;
   padding: 26px 14px;
@@ -341,8 +359,14 @@ footer {
     flex-direction: column;
   }
 
+  .logo {
+    font-size: 2rem;
+    text-align: center;
+  }
+
   .menu {
     justify-content: center;
+    gap: 18px;
   }
 
   .hero {
@@ -353,6 +377,10 @@ footer {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .hero h1 {
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
+  }
 }
 
   </style>
@@ -360,7 +388,7 @@ footer {
 <body>
   <header>
     <div class="container nav">
-      <div class="logo">BARBEARIA DO DENI</div>
+      <div class="logo">💈 BARBEARIA DO DENI 💈</div>
       <nav class="menu">
         <a href="#inicio">Início</a>
         <a href="#servicos">Serviços</a>
@@ -377,7 +405,7 @@ footer {
         Aqui, cada detalhe é pensado para você sair alinhado, confiante e pronto para qualquer ocasião.
       </p>
       <div class="hero-buttons">
-        <a class="btn" href="https://wa.me/556285481803" target="_blank">Agendar pelo WhatsApp</a>
+        <a class="btn" href="https://wa.me/5562985481803?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank">Agendar pelo WhatsApp</a>
         <a class="btn-outline" href="#servicos">Ver serviços</a>
       </div><div class="highlights">
     <div class="highlight-box">
@@ -415,14 +443,14 @@ footer {
 
     <div class="card">
       <h3>Corte + barba</h3>
-      <p>Valores de combos e cortes especiais podem variar conforme o estilo solicitado.</p>
-      <div class="price">Sob consulta</div>
+      <p>Atendimento completo para quem quer sair alinhado do jeito certo.</p>
+      <div class="price">R$ 50,00</div>
     </div>
 
     <div class="card">
       <h3>Sobrancelha</h3>
       <p>Ajuste discreto para destacar ainda mais o seu rosto.</p>
-      <div class="price">R$ 10,00</div>
+      <div class="price">R$ 20,00</div>
     </div>
   </div>
 </div>
@@ -436,10 +464,10 @@ footer {
           Cada atendimento é feito com atenção aos detalhes, respeito ao cliente e compromisso com um resultado de qualidade.
         </p>
         <p>
-          O ambiente foi pensado para ser agradável, acolhedor e marcante, com aquele estilo clássico de barbearia que nunca sai de moda.
-        </p>
-        <a class="btn" href="#contato">Entrar em contato</a>
-      </div><div class="about-image"></div>
+          Atendimento com horário marcado, pensado para oferecer conforto, praticidade e uma experiência diferenciada em cada visita.
+        </p></div>
+
+  
 </div>
 
   </section>  <section class="cta">
@@ -448,7 +476,7 @@ footer {
       <p>
         Agende agora e venha viver uma experiência de barbearia com estilo, conforto e acabamento de alto nível.
       </p>
-      <a class="btn" href="https://wa.me/556285481803" target="_blank">Agendar agora</a>
+      <a class="btn" href="https://wa.me/5562985481803?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank">Agendar agora</a>
     </div>
   </section>  <section id="contato">
     <div class="container">
@@ -473,7 +501,9 @@ footer {
   </div>
 </div>
 
-  </section>  <footer>
+  </section><a class="whatsapp-float" href="https://wa.me/5562985481803?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" aria-label="WhatsApp">✆</a>
+
+  <footer>
     <p>© 2026 Barbearia do Deni. Todos os direitos reservados.</p>
   </footer>
 </body>
