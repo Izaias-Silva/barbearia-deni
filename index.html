@@ -36,6 +36,7 @@
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
+      overflow-x: hidden;
     }
 
     img {
@@ -66,6 +67,8 @@
       width: min(460px, 96%);
       object-fit: contain;
       filter: drop-shadow(0 4px 12px rgba(0,0,0,0.45));
+      animation: flutuarLogo 3.5s ease-in-out infinite;
+      will-change: transform;
     }
 
     nav {
@@ -81,7 +84,14 @@
       font-size: 1.08rem;
       font-weight: 700;
       transition: opacity 0.2s ease, transform 0.2s ease;
+      opacity: 0;
+      animation: aparecerNav 0.8s ease forwards;
     }
+
+    nav a:nth-child(1) { animation-delay: 0.15s; }
+    nav a:nth-child(2) { animation-delay: 0.25s; }
+    nav a:nth-child(3) { animation-delay: 0.35s; }
+    nav a:nth-child(4) { animation-delay: 0.45s; }
 
     nav a:hover {
       opacity: 0.8;
@@ -98,11 +108,13 @@
       background:
         linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.48)),
         url('https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+      background-attachment: fixed;
     }
 
     .hero-content {
       width: min(980px, 100%);
       animation: aparecer 1s ease;
+      will-change: transform;
     }
 
     .tag {
@@ -115,6 +127,10 @@
       color: var(--muted);
       font-size: 0.98rem;
       backdrop-filter: blur(4px);
+      opacity: 0;
+      transform: translateY(24px);
+      animation: subirFade 0.9s ease 0.2s forwards;
+      will-change: transform;
     }
 
     .hero h1 {
@@ -124,6 +140,10 @@
       text-shadow: 0 2px 14px rgba(0,0,0,0.65);
       max-width: 980px;
       margin: 0 auto 20px;
+      opacity: 0;
+      transform: translateY(28px);
+      animation: subirFade 1s ease 0.4s forwards;
+      will-change: transform;
     }
 
     .hero p {
@@ -133,6 +153,10 @@
       font-size: 1.14rem;
       line-height: 1.8;
       text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+      opacity: 0;
+      transform: translateY(28px);
+      animation: subirFade 1s ease 0.6s forwards;
+      will-change: transform;
     }
 
     .botoes {
@@ -140,6 +164,9 @@
       justify-content: center;
       gap: 16px;
       flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(28px);
+      animation: subirFade 1s ease 0.8s forwards;
     }
 
     .btn,
@@ -304,6 +331,7 @@
       z-index: 60;
       text-decoration: none;
       transition: transform 0.2s ease;
+      animation: pulsarLeve 2.2s infinite ease-in-out;
     }
 
     .whatsapp:hover {
@@ -325,6 +353,42 @@
       font-size: 0.95rem;
     }
 
+    .reveal {
+      opacity: 0;
+      transform: translateY(42px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+      will-change: transform, opacity;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-42px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+      will-change: transform, opacity;
+    }
+
+    .reveal-left.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(42px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+      will-change: transform, opacity;
+    }
+
+    .reveal-right.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
     @keyframes aparecer {
       from {
         opacity: 0;
@@ -336,6 +400,46 @@
       }
     }
 
+    @keyframes subirFade {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes aparecerNav {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes flutuarLogo {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    @keyframes pulsarLeve {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.06);
+      }
+    }
+
     @media (max-width: 980px) {
       .grid-3,
       .contato-grid {
@@ -344,6 +448,7 @@
 
       .hero {
         min-height: auto;
+        background-attachment: scroll;
       }
     }
 
@@ -405,10 +510,10 @@
   </header>
 
   <section class="hero" id="inicio">
-    <div class="container hero-content">
+    <div class="container hero-content" id="heroParallax">
       <div class="tag">Estilo, presença e respeito em cada corte</div>
-      <h1>Mais que um corte. Uma experiência.</h1>
-      <p>
+      <h1 id="tituloParallax">Mais que um corte. Uma experiência.</h1>
+      <p id="textoParallax">
         Uma barbearia com identidade forte, atendimento de respeito e acabamento de qualidade.
         Aqui, cada detalhe é pensado para você sair alinhado, confiante e pronto para qualquer ocasião.
       </p>
@@ -427,13 +532,13 @@
 
   <section id="servicos">
     <div class="container">
-      <h2 class="section-title">Serviços</h2>
-      <p class="section-subtitle">
+      <h2 class="section-title reveal">Serviços</h2>
+      <p class="section-subtitle reveal">
         Atendimento com técnica, capricho e atenção aos detalhes para valorizar seu estilo do jeito certo.
       </p>
 
       <div class="grid-3">
-        <div class="card">
+        <div class="card reveal-left">
           <h3>Cortes modernos</h3>
           <ul>
             <li>Degradê</li>
@@ -444,7 +549,7 @@
           <div class="price">A partir de R$ 25,00</div>
         </div>
 
-        <div class="card">
+        <div class="card reveal">
           <h3>Barba na régua</h3>
           <ul>
             <li>Alinhamento</li>
@@ -454,7 +559,7 @@
           <div class="price">R$ 25,00</div>
         </div>
 
-        <div class="card">
+        <div class="card reveal-right">
           <h3>Combo completo</h3>
           <ul>
             <li>Corte + barba</li>
@@ -469,12 +574,12 @@
 
   <section id="sobre">
     <div class="container">
-      <h2 class="section-title">Sobre a barbearia</h2>
-      <p class="section-subtitle">
+      <h2 class="section-title reveal">Sobre a barbearia</h2>
+      <p class="section-subtitle reveal">
         Um espaço pensado para quem gosta de andar alinhado e ser bem atendido do começo ao fim.
       </p>
 
-      <div class="sobre-box">
+      <div class="sobre-box reveal">
         <p>
           Na <strong>Barbearia do Deni</strong>, cada cliente recebe atenção, cuidado e compromisso com a qualidade.
           O objetivo é entregar mais do que um corte bonito. A ideia é proporcionar uma experiência completa, com estilo, presença e confiança.
@@ -488,23 +593,23 @@
 
   <section id="contato">
     <div class="container">
-      <h2 class="section-title">Contato</h2>
-      <p class="section-subtitle">
+      <h2 class="section-title reveal">Contato</h2>
+      <p class="section-subtitle reveal">
         Escolha a forma mais prática para falar com a barbearia e agendar seu horário.
       </p>
 
       <div class="contato-grid">
-        <div class="contato-item">
+        <div class="contato-item reveal-left">
           <h4>WhatsApp</h4>
           <p>(62) 98548-1803</p>
         </div>
 
-        <div class="contato-item">
+        <div class="contato-item reveal">
           <h4>Ligação</h4>
           <p>Atendimento direto pelo telefone da barbearia.</p>
         </div>
 
-        <div class="contato-item">
+        <div class="contato-item reveal-right">
           <h4>Agendamento</h4>
           <p>Entre em contato e marque seu horário com rapidez e praticidade.</p>
         </div>
@@ -514,12 +619,12 @@
 
   <section class="cta-final">
     <div class="container">
-      <h2>Seu próximo corte começa aqui</h2>
-      <p>
+      <h2 class="reveal">Seu próximo corte começa aqui</h2>
+      <p class="reveal">
         Fale agora com a Barbearia do Deni e garanta um atendimento feito com estilo, qualidade e atenção aos detalhes.
       </p>
 
-      <div class="botoes">
+      <div class="botoes reveal">
         <a class="btn" href="https://wa.me/5562985481803?text=Olá! Gostaria de agendar um horário.">
           Agendar no WhatsApp
         </a>
@@ -541,5 +646,37 @@
     © 2026 Barbearia do Deni. Todos os direitos reservados.
   </footer>
 
+  <script>
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+    const revealOnScroll = () => {
+      const windowHeight = window.innerHeight;
+
+      revealElements.forEach((el) => {
+        const elementTop = el.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 80) {
+          el.classList.add('show');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    const tituloParallax = document.getElementById('tituloParallax');
+    const textoParallax = document.getElementById('textoParallax');
+    const heroParallax = document.getElementById('heroParallax');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+
+      if (scrollY < 700) {
+        tituloParallax.style.transform = `translateY(${scrollY * 0.08}px)`;
+        textoParallax.style.transform = `translateY(${scrollY * 0.05}px)`;
+        heroParallax.style.transform = `translateY(${scrollY * 0.03}px)`;
+      }
+    });
+  </script>
+
 </body>
-</html>
+  </html>
